@@ -6,7 +6,7 @@
 
 | Field | Value |
 |-------|-------|
-| **Reporter** | Shubh — Deployment & QA Engineer |
+| **Reporter** | Shubhkarman Singh |
 | **Date Filed** | 2026-03-07 |
 | **Component** | Sander Motor Controller / Arm Pressure Safety / UI Watchdog |
 | **Affected Robot(s)** | Unit deployed at Hallway B, Building 12; also confirmed in lab |
