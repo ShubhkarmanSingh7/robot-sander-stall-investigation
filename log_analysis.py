@@ -8,7 +8,7 @@ Analyses the robot telemetry CSV (robot_state_log.csv) to:
   2. Compute average arm_pressure_kg in the 1s window before each stall
   3. Identify variables that correlate with the pressure spike
 
-Author : Shubh
+Author : Shubhkarman Singh
 Usage  : python3 log_analysis.py [path_to_csv]
          Defaults to robot_state_log.csv in the same directory.
 """
@@ -36,15 +36,12 @@ def load_csv(filepath):
     return rows
 
 
-# --- Requirement 1: Count stall events ---
-
+# Requirement 1: Count stall events 
 def count_stall_events(rows):
     """Count how many rows have ERR_SANDER_STALL."""
     return sum(1 for r in rows if r["error_code"] == "ERR_SANDER_STALL")
 
-
-# --- Requirement 2: Average pressure in the 1s window before each stall ---
-
+# Requirement 2: Average pressure in the 1s window before each stall
 def avg_pressure_before_stalls(rows, window_sec=1.0):
     """
     For each stall event, grab the arm_pressure_kg values from the 1s
@@ -81,7 +78,7 @@ def avg_pressure_before_stalls(rows, window_sec=1.0):
     return results
 
 
-# --- Requirement 3: Correlation analysis ---
+# Requirement 3: Correlation analysis
 
 def correlate_variables(rows, window_sec=1.0):
     """
@@ -155,7 +152,7 @@ def baseline_stats(rows):
     }
 
 
-# --- Report output ---
+# Report output
 
 def print_report(csv_path):
     rows = load_csv(csv_path)
